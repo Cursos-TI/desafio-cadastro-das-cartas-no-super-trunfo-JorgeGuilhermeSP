@@ -15,8 +15,8 @@ int main() {
     double area; double area2;
     double pib; double pib2;
     int pontoturistico; int pontoturistico2;
-    double pibpercap, densipop, pibpercap2, densipop2;
-    
+    double pibpercap, densipop, pibpercap2, densipop2, superpoder1, superpoder2;
+    int rpop, rarea, rpib, rpt, rpibp, rdensipop, rsp;
      printf ("digite o nome do Estado 1: \n");
      scanf ("%s", estado);
      
@@ -67,19 +67,29 @@ int main() {
      densipop =  populacao / area;
      pibpercap2 = (pib2 * 1000000000) /  populacao2;
      densipop2 = populacao2 / area2;
-
+     superpoder1 = populacao + area + pib + pontoturistico + pibpercap + (1 / densipop);
+     superpoder2 = populacao2 + area2 + pib2 + pontoturistico2 + pibpercap2 +(1 / densipop2);
+     
+     rpop = populacao > populacao2;
+     rarea = area > area2;
+     rpib = pib > pib2;
+     rpt = pontoturistico > pontoturistico2;
+     rpib = pib > pib2;
+     rdensipop = densipop < densipop2;
+     rpibp = pibpercap > pibpercap2;
+     rsp = superpoder1 > superpoder2;
 
      printf ("Carta 1: \n");
-     printf ("Estado: %s \n", estado); 
+     printf ("Estado: %s\n", estado); 
      printf ("Código: %s \n", codigo);
      printf ("Cidade: %s \n", cidade);
-     printf ("População: %d \n", populacao);
-     printf ("Área: %.2f km²\n", area);
-     printf ("PIB: %.2f bilhão\n", pib);
-     printf ("Ponto turístico: %d\n", pontoturistico);
-     printf ("Densidade populacional: %.2f\n", densipop);
-     printf ("PIB per Capita: %.2f\n", pibpercap);
-     
+     printf ("População: %d - vence carta 2:%d\n", populacao, rpop);
+     printf ("Área: %.2f km² - vence carta 2: %d\n", area, rarea);
+     printf ("PIB: %.2f bilhão - vence carta 2: %d\n", pib, rpib);
+     printf ("Ponto turístico: %d - vence carta 2: %d\n", pontoturistico, rpt);
+     printf ("Densidade populacional: %.2f - vence carta 2: %d\n", densipop, rdensipop);
+     printf ("PIB per Capita: %.2f - vence carta 2: %d\n", pibpercap, rpibp);
+     printf ("superpoder: %.2f - vence carta 2: %d\n", superpoder1, rsp);
      printf (" \n");
 
      printf ("Carta 2: \n");
@@ -92,7 +102,8 @@ int main() {
      printf ("Ponto turístico: %d\n", pontoturistico2);
      printf ("Densidade populacional: %.2f\n", densipop2);
      printf ("PIB per Capita: %.2f\n", pibpercap2);
-
+     printf ("superpoder: %.2f\n", superpoder2);
+     
 
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     
@@ -106,4 +117,3 @@ int main() {
 
     return 0;
 }
-
